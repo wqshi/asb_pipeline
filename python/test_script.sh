@@ -11,43 +11,54 @@ mode=test
 
 #Prepare the data
 
-mkdir $vcf_dir
-mkdir $fastq_dir
 
 ln -s $project_dir/data/ $project_dir/python/data
 ln -s $project_dir/data/ $project_dir/R/data
 
+
+##Step1. Prepare the data.
+
+mkdir $vcf_dir
+mkdir $fastq_dir
+
+##Step1.1 VCF data
 cd $vcf_dir
+
 #The vcf directory(./data/raw_data/vcf/) should include: 
 #1. hg19.fa. #The reference genome gh19.
 #2. vcf file of the cell.(e.g. gm12878)
 
-#hg19.fa: hg19 reference genome(https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz)
+#Step1.1.1 hg19.fa: hg19 reference genome(https://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz)
 wget http://ftp-trace.ncbi.nih.gov/1000genomes/ftp/technical/reference/human_g1k_v37.fasta.gz --no-check-certificate -O hg19.fa.gz
 gzip -d hg19.fa.gz
 
 
-#gm12878.vcf: the vcf file of the target cell. Used to retrive from (ftp://ftp2.completegenomics.com/vcf_files/Build37_2.0.0/). But the link is broken now. We provide a subset of vcf file in the github.
+#Step 1.1.2 gm12878.vcf: the vcf file of the target cell. Used to retrive from (ftp://ftp2.completegenomics.com/vcf_files/Build37_2.0.0/). But the link is broken now. We provide a subset of vcf file in the github.
 #wget https://github.com/wqshi/asb_pipeline/blob/master/data/raw_data/gm12878.chr22.vcf.gz?raw=true --no-check-certificate
-gzip -d -c $project/data/raw_data/gm12878.chr22.vcf.gz > gm12878.vcf
+gzip -d -c $project_dir/data/raw_data/gm12878.chr22.vcf.gz > gm12878.vcf
 
-cd $fastq_dir
+
+
+
+#Step 1.2 The ChIP-seq data
+cd $fastq_di
+
+
 #The fastq directory should include:
-#Raw ChIP-seq reads for the transcription factor in the targeted cell (e.g. CTCF in GM12878).
+#Step 1.2.1 Raw ChIP-seq reads for the transcription factor in the targeted cell (e.g. CTCF in GM12878).
 #We can download the ChIP-seq data from the ENCODE project.
 
 wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeSydhTfbs/wgEncodeSydhTfbsGm12878Ctcfsc15914c20StdRawDataRep1.fastq.gz -O sydh-gm12878-ctcf-Rep1.fastq.gz
-
 wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeSydhTfbs/wgEncodeSydhTfbsGm12878Ctcfsc15914c20StdRawDataRep2.fastq.gz -O sydh-gm12878-ctcf-Rep2.fastq.gz
 
+#Step1.2.2 Get the called ChIP-seq peaks for CTCF.
 wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsSydhGm12878Ctcfsc15914c20UniPk.narrowPeak.gz -O sydh-gm12878-ctcf.narrowPeak.gz
-
 gzip -d sydh-gm12878-ctcf.narrowPeak.gz
 
-#Get the called ChIP-seq peaks for CTCF.
 
 
 
+##Step 2: map chIP-seq reads.
 cd $project_dir/python/
 
 #Create the personalized genome, about 1~2 hours.
