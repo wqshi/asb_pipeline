@@ -1,5 +1,5 @@
 project_dir=/homed/home/shi/projects/asb_pipeline/
-local_bin=$HOME/bin/novocraft/bin/
+loc_bin=$HOME/bin/novocraft/bin/
 vcf_dir=$project_dir/data/raw_data/vcf2/
 fastq_dir=$project_dir/data/raw_data/fastq2/
 bam_dir=$fastq_dir
@@ -28,8 +28,8 @@ gzip -d hg19.fa.gz
 
 
 #gm12878.vcf: the vcf file of the target cell. Used to retrive from (ftp://ftp2.completegenomics.com/vcf_files/Build37_2.0.0/). But the link is broken now. We provide a subset of vcf file in the github.
-wget https://github.com/wqshi/asb_pipeline/blob/master/data/raw_data/gm12878.chr22.vcf.gz?raw=true --no-check-certificate
-gzip -d -c gm12878.chr22.vcf.gz > gm12878.vcf
+#wget https://github.com/wqshi/asb_pipeline/blob/master/data/raw_data/gm12878.chr22.vcf.gz?raw=true --no-check-certificate
+gzip -d -c $project/data/raw_data/gm12878.chr22.vcf.gz > gm12878.vcf
 
 cd $fastq_dir
 #The fastq directory should include:
