@@ -19,6 +19,7 @@ if len(sys.argv) > 2:
     bed_dir = sys.argv[4]
     bam_dir = sys.argv[5]
     wgs_dir = sys.argv[6]
+    cnv_dir = sys.argv[7]
 else:
     cell = 'gmtest'
     guest_cell = 'gmtest'
@@ -28,7 +29,7 @@ else:
     bed_dir = "/homed/home/shi/test/t_het_sites_in_narrow_peak/"
     wgs_dir="/homed/home/shi/projects/wgs"
     bam_dir="/homed/home/shi/test/t_het_sites_in_narrow_peak"
-    
+    cnv_dir='%s/cnv/'%wgs_dir
 input_step=extract_type
     
 diffpeak_method = 'pepr'
@@ -100,7 +101,7 @@ else:
 
 if "add_feature_light" in steps:
     #small is fine, check 2G
-    add_cmd="python2.7 p_add_feature_on_loc_dp_light.py  %s %s %s %s"%(cell, my.f_send_list_para(tf_list), my.f_send_list_para(labs), bed_dir )
+    add_cmd="python2.7 p_add_feature_on_loc_dp_light.py  %s %s %s %s %s"%(cell, my.f_send_list_para(tf_list), my.f_send_list_para(labs), bed_dir, cnv_dir )
     my.f_shell_cmd(add_cmd)
 else:
     print "=====Skip feature light=============="
