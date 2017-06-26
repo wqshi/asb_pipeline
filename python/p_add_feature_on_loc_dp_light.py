@@ -31,7 +31,7 @@ if (server_name == "loire" and len(sys.argv) < 3):
     tf_list = ["ctcf"]
     cell_list=["gm12878"]
     debug_flag = False
-    
+    cnv_dir = os.path.join(home_dir, 'projects/wgs/cnv' ) + '/'
     labs=["sydh","haib","uw","uchicago","uta"]
     cell = 'gm12878'
 elif (server_name == "loire" and len(sys.argv) < 3):
@@ -45,7 +45,7 @@ elif (server_name == "loire" and len(sys.argv) < 3):
     cell = 'gmtest'
     labs=["sydh","haib","uw","uchicago","uta"]
     #cell = 'gm12878'
-    
+    cnv_dir = os.path.join(home_dir, 'projects/wgs/cnv' ) + '/'
 else:
     cell=sys.argv[1]
     tf_list=my.f_recieve_list_para(sys.argv[2])
@@ -54,7 +54,7 @@ else:
 
     data_dir=sys.argv[4]
     #cofactor_dir = data_dir
- 
+    cnv_dir = sys.argv[5]
 
 
 def f_get_loc_hct(loc_file, feature_file, output_file):
@@ -195,7 +195,7 @@ for loc_tf in tf_list:
 
 
     #Copy number variants
-    cnv_dir = os.path.join(home_dir, 'projects/wgs/cnv' ) + '/'
+    #cnv_dir = os.path.join(home_dir, 'projects/wgs/cnv' ) + '/'
     cnv_files =list(my.grep_list( '.*%s.*%s' % (cell, 'Rep'), os.listdir(cnv_dir)))
     print(cnv_files)
     for i in range(0, len(cnv_files)):
