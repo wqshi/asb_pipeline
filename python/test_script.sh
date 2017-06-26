@@ -55,7 +55,12 @@ wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeSydhTfbs/w
 wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeAwgTfbsUniform/wgEncodeAwgTfbsSydhGm12878Ctcfsc15914c20UniPk.narrowPeak.gz -O sydh-gm12878-ctcf.narrowPeak.gz
 gzip -d sydh-gm12878-ctcf.narrowPeak.gz
 
-
+#Step 1.3 Copy number variants
+cnv_dir=$project_dir/data/raw_data/cnv/
+mkdir $cnv_dir
+cd $cnv_dir
+wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeHaibGenotype/wgEncodeHaibGenotypeGm12878RegionsRep1.bedLogR.gz
+gzip -d wgEncodeHaibGenotypeGm12878RegionsRep1.bedLogR.gz 
 
 
 ##Step 2: map chIP-seq reads.
@@ -81,7 +86,7 @@ fi
 
 
 #Extract the signal at heterozygous sites.
-python2.7 p_post_process_after_asb_mapping_dp.py $cell $tf all $bed_dir $bam_dir $wgs_dir
+python2.7 p_post_process_after_asb_mapping_dp.py $cell $tf all $bed_dir $bam_dir $wgs_dir $cnv_dir
 
 #Call ASB events.
 cd ../R
