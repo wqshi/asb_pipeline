@@ -1,4 +1,5 @@
 project_dir=/homed/home/shi/projects/asb_pipeline/
+local_bin=$HOME/bin/novocraft/bin/
 vcf_dir=$project_dir/data/raw_data/vcf2/
 fastq_dir=$project_dir/data/raw_data/fastq2/
 bam_dir=$fastq_dir
@@ -13,8 +14,8 @@ mode=test
 mkdir $vcf_dir
 mkdir $fastq_dir
 
-ln -s $project_dir/data/ $project_dir/python/data/
-ln -s $project_dir/data/ $project_dir/R/data/
+ln -s $project_dir/data/ $project_dir/python/data
+ln -s $project_dir/data/ $project_dir/R/data
 
 cd $vcf_dir
 #The vcf directory(./data/raw_data/vcf/) should include: 
@@ -28,7 +29,7 @@ gzip -d hg19.fa.gz
 
 #gm12878.vcf: the vcf file of the target cell. Used to retrive from (ftp://ftp2.completegenomics.com/vcf_files/Build37_2.0.0/). But the link is broken now. We provide a subset of vcf file in the github.
 wget https://github.com/wqshi/asb_pipeline/blob/master/data/raw_data/gm12878.chr22.vcf.gz?raw=true --no-check-certificate
-gzip gm12878.chr22.vcf.gz > gm12878.vcf
+gzip -d -c gm12878.chr22.vcf.gz > gm12878.vcf
 
 cd $fastq_dir
 #The fastq directory should include:
@@ -53,8 +54,8 @@ cd $project_dir/python/
 sh s_format_vcf_gatk.sh $cell $vcf_dir > index.log 2>&1
 
 #Map ChIP-seq reads, in test mode it will be less than 5 minustes. The normal process time woud be aroud 1~3 days 
-python2.7 p_novo_mapping.py --fastq_dir $fastq_dir --fastq_file sydh-gm12878-ctcf-Rep1.fastq.gz --mode $mode
-python2.7 p_novo_mapping.py --fastq_dir $fastq_dir --fastq_file sydh-gm12878-ctcf-Rep2.fastq.gz --mode $mode
+python2.7 p_novo_mapping.py --fastq_dir $fastq_dir --fastq_file sydh-gm12878-ctcf-Rep1.fastq.gz --mode $mode --wgs_dir $wgs_dir --loc_bin $loc_bin
+python2.7 p_novo_mapping.py --fastq_dir $fastq_dir --fastq_file sydh-gm12878-ctcf-Rep2.fastq.gz --mode $mode --wgs_dir $wgs_dir --loc_bin $loc_bin
 
 
 #In the test case. We use existing bam file.
