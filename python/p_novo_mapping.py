@@ -1,7 +1,7 @@
 #!/usr/bin/env python2.7
 import os
 import socket
-from p_project_meta_data import local_bin,wgs_dir
+#from p_project_meta_data import local_bin,wgs_dir
 import re
 import sys
 import subprocess
@@ -31,6 +31,8 @@ the name of the file should follow: lab-celll-tf-rep.fastq.gz",
 
     parser.add_argument('--data_dir', help = "Copy the files to this directory to process. If not provided,\
                                                                     will use fastq_dir as default.", default = '' )
+    parser.add_argument('--loc_bin', help = "The dir name for novoalign", default = '' )
+    parser.add_argument('--wgs_dir', help = "The dir name for novoalign index file.", default = '' )                                                                                                                                       
 
 
                                                                  
