@@ -187,7 +187,7 @@ for loc_tf in tf_list:
 
         #Peak P values, extract from narrowPeak file, not 101bp.bed
         peak_file_wide = peak_file.replace('.101bp.bed', '')
-        peak_pvalue_pd = f_overlap_with_feature_bed(peak_file_wide, bed_file, 6, "peak_%s_pvalue" % lab_name , feature_extend_distanace = 0, debug = debug_flag)
+        peak_pvalue_pd = f_overlap_with_feature_bed(peak_file_wide, bed_file, 6, "peak_%s_pvalue" % lab_name , feature_extend_distanace = 0, debug = False)
         print peak_pvalue_pd.head()
         tf_database.merge_feature(peak_pvalue_pd[["chr","start","peak_%s_pvalue" % lab_name]])
 
