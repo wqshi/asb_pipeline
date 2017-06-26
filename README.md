@@ -19,19 +19,19 @@ Please the test_script.sh in the ./python/
 
 
 
-##Software needed:
+## Software used in the testing:
 
-*Python 2.7.3
+* Python 2.7.3
 
-*pandas-0.12.0
+* pandas-0.12.0
 
-*VCFtools (v0.1.11)
+* VCFtools (v0.1.11)
 
-*Novoalign V3.01.00
+* Novoalign V3.01.00
 
-*R 3.1.3
+* R 3.1.3
 
-*OS: CentOS 5
+* OS: CentOS 5
 
 ## To do:
 * Add the scripts for read simulation.
