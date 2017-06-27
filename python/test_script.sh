@@ -41,7 +41,7 @@ gzip -d -c $project_dir/data/raw_data/gm12878.chr22.vcf.gz > gm12878.vcf
 
 
 #Step 1.2 The ChIP-seq data
-cd $fastq_di
+cd $fastq_dir
 
 
 #The fastq directory should include:
@@ -92,7 +92,7 @@ python2.7 p_post_process_after_asb_mapping_dp.py $cell $tf all $bed_dir $bam_dir
 cd ../R
 Rscript3 ./s_call_asb_events.R --base_dir $bed_dir --cell $cell --tf $tf
 
-#The final processed data files are in the $bed_dir. Named as gm12878-gm12878-ctcf.database.
+#The final processed data files are in the $bed_dir. Named as gm12878-ctcf.asb.txt.
 
 
 
