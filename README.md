@@ -1,4 +1,4 @@
-README.md## The pipeline to extract allele specific binding events from CHiP-seq datasets.
+## The pipeline to extract allele specific binding events from CHiP-seq datasets.
 
 Author: Wenqiang Shi.
 
