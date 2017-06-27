@@ -7,6 +7,8 @@ bed_dir=$fastq_dir
 wgs_dir=$vcf_dir
 cell=gm12878
 tf=ctcf
+
+#Mode option: test or unique. In the test mode, we will only map 1000 reads to test the mapping pipeline. In the unique mode, we will map all the reads. The unique mode will take 1~2 days to finish.
 mode=test
 
 #Prepare the data
