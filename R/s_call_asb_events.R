@@ -24,7 +24,7 @@ opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
 str(opt)
 
-if(FALSE){
+if(TRUE){
     #Test case1
     base_dir = "/homed/home/shi/projects/asb_pipeline//data/raw_data/fastq/"
     dp_threshold = 10
@@ -62,7 +62,7 @@ guest_data = f_get_epi_from_paird_database(cell_loc, cell_loc, tf, base_dir, dp_
                                            debug=F)
 
 
-write.table(x=guest_data, file = f_p('%s/%s-%s-%s.database'), quote=F, row.names = F, sep ='\t' )
+write.table(x=guest_data, file = f_p('%s/%s-%s.asb.txt',base_dir, cell_loc, tf ), quote=F, row.names = F, sep ='\t' )
 ##write.table(x = subset(combined_data, ! tf %in% c('runx3')), file = './data/oriol/combined.20160715.txt', quote = F, sep = '\t', row.names = F)
 
 
