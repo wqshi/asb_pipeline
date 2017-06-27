@@ -26,7 +26,7 @@ mkdir $fastq_dir
 ##Step1.1 VCF data
 cd $vcf_dir
 
-#The vcf directory(./data/raw_data/vcf/) should include: 
+#The vcf directory should include: 
 #1. hg19.fa. #The reference genome gh19.
 #2. vcf file of the cell.(e.g. gm12878)
 
@@ -94,7 +94,7 @@ python2.7 p_post_process_after_asb_mapping_dp.py $cell $tf all $bed_dir $bam_dir
 cd ../R
 Rscript3 ./s_call_asb_events.R --base_dir $bed_dir --cell $cell --tf $tf
 
-#The final processed data files are in the $bed_dir. Named as gm12878-ctcf.asb.txt.
+#The final processed data files are in the $bed_dir,named as gm12878-ctcf.asb.txt.
 
 
 
