@@ -1,6 +1,6 @@
 # The pipeline to call ASB events.
 
-After clone the reposiory to local directory. Modify the project_dir in the test_script.sh
+After clone the repository to local directory. Modify the variable "project_dir" to the path of repository in the test_script.sh
 
 Then, run :
 

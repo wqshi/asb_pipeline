@@ -16,9 +16,8 @@ import pandas as pd
 
 
 
-logging.basicConfig(level=logging.DEBUG)
-
-logging.getLogger().setLevel(logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
+#logging.getLogger().setLevel(logging.DEBUG)
 reload(loc)
 
 

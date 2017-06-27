@@ -24,7 +24,7 @@ opt_parser = OptionParser(option_list=option_list);
 opt = parse_args(opt_parser);
 str(opt)
 
-if(TRUE){
+if(FALSE){
     #Test case1
     base_dir = "/homed/home/shi/projects/asb_pipeline//data/raw_data/fastq/"
     dp_threshold = 10
