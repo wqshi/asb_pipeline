@@ -1,4 +1,4 @@
-## The pipeline to extract allele specific binding events from CHiP-seq datasets.
+README.md## The pipeline to extract allele specific binding events from CHiP-seq datasets.
 
 Author: Wenqiang Shi.
 
@@ -25,9 +25,9 @@ Please the test_script.sh in the ./python/
 
 * pandas-0.12.0
 
-* VCFtools (v0.1.11)
+* VCFtools (v0.1.11), making sure it's in the $PATH.
 
-* Novoalign V3.01.00
+* Novoalign V3.01.00, including novoutil and novoindex. Should be in the $PATH. 
 
 * R 3.1.3
 

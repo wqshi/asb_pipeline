@@ -16,8 +16,8 @@ import pandas as pd
 
 
 
-#logging.basicConfig(level=logging.DEBUG)
-#logging.getLogger().setLevel(logging.DEBUG)
+logging.basicConfig(level=logging.ERROR)
+logging.getLogger().setLevel(logging.ERROR)
 reload(loc)
 
 
@@ -137,7 +137,7 @@ def f_overlap_with_feature_bed(feature_file, loc_file, value_col, value_name, fe
     
     feature_regions_pd=my.f_bed_to_pd(feature_regions).ix[:,[0,2, 7]] # the 7th position is for value_col
     feature_regions_pd.columns=["chr","start",value_name]
-    logging.debug(feature_regions_pd[['start', value_name]].values)
+    #logging.debug(feature_regions_pd[['start', value_name]].values)
     #logging.debug("=====Missing Pvalue======") #Mostly because I extend 100bp
     feature_regions_pd['start'] = feature_regions_pd['start'].astype(float)
 
