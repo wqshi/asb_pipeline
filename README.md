@@ -15,7 +15,7 @@ More details please see the citation.
 
 ## Example
 
-Please the test_script.sh in the ./python/
+Please see the test_script.sh in the ./python/
 
 
 
@@ -38,7 +38,22 @@ Please the test_script.sh in the ./python/
 * Adjust asb calling based on copy number variants
 
 ## Citation:
-Shi, Wenqiang, et al. "Evaluating the impact of single nucleotide variants on transcription factor binding." Nucleic acids research 44.21 (2016): 10106-10116.
+Wenqiang Shi, Oriol Fornes, Anthony Mathelier, Wyeth W. Wasserman; Evaluating the impact of single nucleotide variants on transcription factor binding. Nucleic Acids Res 2016; 44 (21): 10106-10116. doi: 10.1093/nar/gkw691
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
